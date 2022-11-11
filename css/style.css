@@ -123,6 +123,18 @@ ul {
 
 .site-nav .link.current {
   color: var(--accent-color);
+  position: relative;
+}
+
+.site-nav .current::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  content: "";
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
 }
 
 .contact .link {
@@ -209,6 +221,8 @@ ul {
   background-color: var(--background-color-hero-batton);
 }
 
+
+
 /* benefits */
 .benefits {
   display: flex;
@@ -250,6 +264,7 @@ ul {
 
 .image {
   display: inline-block;
+  position: relative;
 }
 /* Work end Comanda */
 .container-prof {
@@ -261,6 +276,26 @@ ul {
 
 .section.works {
   padding-top: 0;
+}
+
+.work-title {
+  position: absolute;
+  display: flex;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+
+  width: 100%;
+  height: 70px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
 }
 
 .section.prof {
@@ -280,7 +315,9 @@ ul {
 .work-list {
   display: flex;
 }
-
+.work-image {
+  display: block;
+}
 .work-list .image + .image {
   margin-left: 30px;
 }
@@ -545,11 +582,35 @@ ul {
 .card:hover,
 .card:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
-  0px 1px 1px rgba(0, 0, 0, 0.12);
+    0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .card.text-portf {
   margin-top: 4px;
+}
+.example:hover .example-top-text {
+  transform: translateY(0);
+}
+
+.example-top-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.example-top-text {
+  position: absolute;
+  top: 0;
+  color: var(--primary-white-color);
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 40px;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 300ms ease;
+  overflow: auto;
 }
 
 .ul-button {
@@ -596,6 +657,10 @@ ul {
   border-top: none;
 }
 
+.exampel-text {
+
+}
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -607,4 +672,43 @@ ul {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  height: 581px;
+  width: 528px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background-color: transparent;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+cursor: pointer;
 }
